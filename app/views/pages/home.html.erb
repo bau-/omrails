@@ -1,9 +1,13 @@
-<div class="jumbotron">
-	<h1>Welcome to ONRails</h1>
-	<p>You've found the home page
-		<%= link_to "Google", "http://www.google.it" %>
-	</p>
-	<p>
-		<%= link_to "Sign Up now!", "#", class: "btn btn-primary btn-lg" %>
-	</p>
-</div>
+<% if user_signed_in? %>
+	<h1>You're Logged In</h1>
+<% else %>
+	<div class="jumbotron">
+		<h1>Welcome to ONRails</h1>
+		<p>You've found the home page
+			<%= link_to "Google", "http://www.google.it" %>
+		</p>
+		<p>
+			<%= link_to "Sign Up now!", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+		</p>
+	</div>
+<% end %>
